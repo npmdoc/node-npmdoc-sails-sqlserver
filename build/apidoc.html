@@ -1,0 +1,2817 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/cnect/sails-sqlserver"
+
+    >sails-sqlserver (v0.10.8)</a>
+</h1>
+<h4>Official SQL Server Adapter for Sails / Waterline</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver">module sails-sqlserver</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">sails-sqlserver.</span>syncable</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.connectConnection">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>connectConnection
+            <span class="apidocSignatureSpan">(connection, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.create">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>create
+            <span class="apidocSignatureSpan">(connection, collection, values, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.define">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>define
+            <span class="apidocSignatureSpan">(connection, collection, definition, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.describe">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>describe
+            <span class="apidocSignatureSpan">(connection, collection, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.destroy">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>destroy
+            <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.drop">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>drop
+            <span class="apidocSignatureSpan">(connection, collection, relations, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.find">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>find
+            <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.getPrimaryKey">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>getPrimaryKey
+            <span class="apidocSignatureSpan">(connection, collection)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.join">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>join
+            <span class="apidocSignatureSpan">(connectionName, collectionName, criteria, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.query">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>query
+            <span class="apidocSignatureSpan">(connection, collection, query, data, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.registerConnection">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>registerConnection
+            <span class="apidocSignatureSpan">(connection, collections, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.teardown">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>teardown
+            <span class="apidocSignatureSpan">(conn, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.update">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>update
+            <span class="apidocSignatureSpan">(connection, collection, options, values, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sails-sqlserver.</span>defaults</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sails-sqlserver.</span>query.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sails-sqlserver.</span>sql</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sails-sqlserver.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver.connectConnection">module sails-sqlserver.connectConnection</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.connectConnection.connectConnection">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>connectConnection
+            <span class="apidocSignatureSpan">(connection, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver.create">module sails-sqlserver.create</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.create.create">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>create
+            <span class="apidocSignatureSpan">(connection, collection, values, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver.define">module sails-sqlserver.define</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.define.define">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>define
+            <span class="apidocSignatureSpan">(connection, collection, definition, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver.describe">module sails-sqlserver.describe</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.describe.describe">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>describe
+            <span class="apidocSignatureSpan">(connection, collection, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver.destroy">module sails-sqlserver.destroy</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.destroy.destroy">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>destroy
+            <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver.drop">module sails-sqlserver.drop</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.drop.drop">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>drop
+            <span class="apidocSignatureSpan">(connection, collection, relations, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver.find">module sails-sqlserver.find</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.find.find">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>find
+            <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver.getPrimaryKey">module sails-sqlserver.getPrimaryKey</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.getPrimaryKey.getPrimaryKey">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>getPrimaryKey
+            <span class="apidocSignatureSpan">(connection, collection)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver.join">module sails-sqlserver.join</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.join.join">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>join
+            <span class="apidocSignatureSpan">(connectionName, collectionName, criteria, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver.query">module sails-sqlserver.query</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.query.query">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>query
+            <span class="apidocSignatureSpan">(connection, collection, query, data, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver.query.prototype">module sails-sqlserver.query.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.query.prototype.cast">
+            function <span class="apidocSignatureSpan">sails-sqlserver.query.prototype.</span>cast
+            <span class="apidocSignatureSpan">(values)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver.registerConnection">module sails-sqlserver.registerConnection</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.registerConnection.registerConnection">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>registerConnection
+            <span class="apidocSignatureSpan">(connection, collections, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver.sql">module sails-sqlserver.sql</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql._schema">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>_schema
+            <span class="apidocSignatureSpan">(collectionName, attribute, attrName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.addColumn">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>addColumn
+            <span class="apidocSignatureSpan">(collectionName, attrName, attrDef)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.attributes">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>attributes
+            <span class="apidocSignatureSpan">(collectionName, attributes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.build">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>build
+            <span class="apidocSignatureSpan">(collectionName, collection, fn, separator, keyOverride, parentKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.escape">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>escape
+            <span class="apidocSignatureSpan">(val, stringifyObjects, timeZone)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.escapeId">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>escapeId
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.insertQuery">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>insertQuery
+            <span class="apidocSignatureSpan">(collectionName, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.normalizeSchema">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>normalizeSchema
+            <span class="apidocSignatureSpan">(schema)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.predicate">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>predicate
+            <span class="apidocSignatureSpan">(collectionName, criterion, key, parentKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.prepareAttribute">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>prepareAttribute
+            <span class="apidocSignatureSpan">(collectionName, value, attrName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.prepareCriterion">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>prepareCriterion
+            <span class="apidocSignatureSpan">(collectionName, value, key, parentKey)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.prepareValue">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>prepareValue
+            <span class="apidocSignatureSpan">(collectionName, value, attrName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.removeColumn">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>removeColumn
+            <span class="apidocSignatureSpan">(collectionName, attrName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.schema">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>schema
+            <span class="apidocSignatureSpan">(collectionName, attributes)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.selectQuery">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>selectQuery
+            <span class="apidocSignatureSpan">(collectionName, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.serializeOptions">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>serializeOptions
+            <span class="apidocSignatureSpan">(collectionName, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.updateCriteria">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>updateCriteria
+            <span class="apidocSignatureSpan">(collectionName, values)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.values">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>values
+            <span class="apidocSignatureSpan">(collectionName, values, key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.sql.where">
+            function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>where
+            <span class="apidocSignatureSpan">(collectionName, where, key, parentKey)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver.teardown">module sails-sqlserver.teardown</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.teardown.teardown">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>teardown
+            <span class="apidocSignatureSpan">(conn, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver.update">module sails-sqlserver.update</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.update.update">
+            function <span class="apidocSignatureSpan">sails-sqlserver.</span>update
+            <span class="apidocSignatureSpan">(connection, collection, options, values, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-sqlserver.utils">module sails-sqlserver.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.utils.buildOrderByStatement">
+            function <span class="apidocSignatureSpan">sails-sqlserver.utils.</span>buildOrderByStatement
+            <span class="apidocSignatureSpan">(criteria)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.utils.buildSelectStatement">
+            function <span class="apidocSignatureSpan">sails-sqlserver.utils.</span>buildSelectStatement
+            <span class="apidocSignatureSpan">(criteria, table)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-sqlserver.utils.prepareValue">
+            function <span class="apidocSignatureSpan">sails-sqlserver.utils.</span>prepareValue
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver" id="apidoc.module.sails-sqlserver">module sails-sqlserver</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.connectConnection" id="apidoc.element.sails-sqlserver.connectConnection">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>connectConnection
+        <span class="apidocSignatureSpan">(connection, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connectConnection = function (connection, cb){
+  var uniqId = _.uniqueId();
+  var isPersistent = connections[connection].config.persistent;
+
+  if (isPersistent &#x26;&#x26; (!connections[connection].mssqlConnection || !connections[connection].mssqlConnection.connected)) {
+    connections[connection].mssqlConnection = new mssql.Connection(marshalConfig(connections[connection].config));
+    connections[connection].mssqlConnection.connect()
+      .then(cb);
+  }
+  else if (!isPersistent &#x26;&#x26; (!connections[connection].mssqlConnection || !connections[connection].mssqlConnection[uniqId] || !connections
+[connection].mssqlConnection[uniqId].connected)) {
+    if (!connections[connection].mssqlConnection) {
+      connections[connection].mssqlConnection = [];
+    }
+
+    connections[connection].mssqlConnection[uniqId] = new mssql.Connection(marshalConfig(connections[connection].config));
+    connections[connection].mssqlConnection[uniqId].connect()
+      .then(function(err) {
+        cb(err, uniqId);
+      });
+  }
+  else {
+    _.defer(cb);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.create" id="apidoc.element.sails-sqlserver.create">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>create
+        <span class="apidocSignatureSpan">(connection, collection, values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (connection, collection, values, cb) {
+  var identityInsert = false;
+  var pk = adapter.getPrimaryKey(connection, collection);
+  //console.log(&#x27;pk=&#x27;, pk);
+  Object.keys(values).forEach(function(key) {
+    values[key] = utils.prepareValue(values[key]);
+    if (pk == key &#x26;&#x26; pk == &#x27;id&#x27;) {
+      identityInsert = true;
+      //console.log(pk, &#x27;==&#x27;, key);
+    }
+  });
+  var statement = sql.insertQuery(collection, values);
+  if (identityInsert) {
+    statement = &#x27;SET IDENTITY_INSERT &#x27;+ collection + &#x27; ON; &#x27;+
+      statement +
+      &#x27;SET IDENTITY_INSERT &#x27;+ collection + &#x27; OFF;&#x27;;
+  }
+
+  //console.log(&#x27;create statement:&#x27;, statement);
+
+  adapter.connectConnection(connection, function __CREATE__(err, uniqId) {
+    if (err) {
+      console.error(err);
+      return cb(err);
+    }
+
+    uniqId = uniqId || false;
+    var mssqlConnect;
+    if (!uniqId) {
+      mssqlConnect = connections[connection].mssqlConnection;
+    }
+    else {
+      mssqlConnect = connections[connection].mssqlConnection[uniqId];
+    }
+
+    var request = new mssql.Request(mssqlConnect);
+    request.query(statement, function(err, recordsets) {
+      if (err) {
+        console.error(err);
+        return cb(err);
+      }
+      var recordset = recordsets[0];
+      var model = values;
+      if (recordset.id) {
+        model = _.extend({}, values, {
+          id: recordset.id
+        });
+      }
+
+      var _query = new Query(connections[connection].collections[collection].definition);
+      var castValues = _query.cast(model);
+
+      //console.log(&#x27;castValues&#x27;, castValues);
+      if (!connections[connection].persistent) {
+        mssqlConnect &#x26;&#x26; mssqlConnect.close();
+      }
+      cb(err, castValues);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.define" id="apidoc.element.sails-sqlserver.define">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>define
+        <span class="apidocSignatureSpan">(connection, collection, definition, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">define = function (connection, collection, definition, cb) {
+			// Add in logic here to create a collection (e.g. CREATE TABLE logic)
+  adapter.connectConnection(connection, function __DEFINE__(err, uniqId) {
+    if (err) {
+      console.error(err);
+      return cb(err);
+    }
+    var schema = sql.schema(collection, definition);
+    var statement = &#x27;CREATE TABLE [&#x27; + collection + &#x27;] (&#x27; + schema + &#x27;)&#x27;;
+
+    uniqId = uniqId || false;
+    var mssqlConnect;
+    if (!uniqId) {
+      mssqlConnect = connections[connection].mssqlConnection;
+    }
+    else {
+      mssqlConnect = connections[connection].mssqlConnection[uniqId];
+    }
+
+    var request = new mssql.Request(mssqlConnect);
+    request.query(statement, function(err, recordset) {
+      if (err) return cb(err);
+      if (!connections[connection].persistent) {
+        mssqlConnect &#x26;&#x26; mssqlConnect.close();
+      }
+      cb(null, {});
+    });
+
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.describe" id="apidoc.element.sails-sqlserver.describe">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>describe
+        <span class="apidocSignatureSpan">(connection, collection, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">describe = function (connection, collection, cb) {
+			// Add in logic here to describe a collection (e.g. DESCRIBE TABLE logic)
+  var tableName = collection;
+  var statement = &#x22;SELECT c.name AS ColumnName,TYPE_NAME(c.user_type_id) AS TypeName,c.is_nullable AS Nullable,c.is_identity AS
+AutoIncrement,ISNULL((SELECT is_unique FROM sys.indexes i LEFT OUTER JOIN sys.index_columns ic ON i.index_id=ic.index_id WHERE i
+.object_id=t.object_id AND ic.object_id=t.object_id AND ic.column_id=c.column_id),0) AS [Unique],ISNULL((SELECT is_primary_key FROM
+ sys.indexes i LEFT OUTER JOIN sys.index_columns ic ON i.index_id=ic.index_id WHERE i.object_id=t.object_id AND ic.object_id=t.object_id
+ AND ic.column_id=c.column_id),0) AS PrimaryKey,ISNULL((SELECT COUNT(*) FROM sys.indexes i LEFT OUTER JOIN sys.index_columns ic
+ON i.index_id=ic.index_id WHERE i.object_id=t.object_id AND ic.object_id=t.object_id AND ic.column_id=c.column_id),0) AS Indexed
+ FROM sys.tables t INNER JOIN sys.columns c ON c.object_id=t.object_id LEFT OUTER JOIN sys.index_columns ic ON ic.object_id=t.object_id
+ WHERE t.name=&#x27;&#x22; + tableName + &#x22;&#x27;&#x22;;
+  adapter.connectConnection(connection, function __DESCRIBE__(err, uniqId) {
+    if (err) {
+      console.error(err);
+      return cb(err);
+    }
+
+    uniqId = uniqId || false;
+    var mssqlConnect;
+    if (!uniqId) {
+      mssqlConnect = connections[connection].mssqlConnection;
+    }
+    else {
+      mssqlConnect = connections[connection].mssqlConnection[uniqId];
+    }
+
+    var request = new mssql.Request(mssqlConnect);
+    request.query(statement, function(err, recordset) {
+      if (err) return cb(err);
+      if (recordset.length === 0) return cb();
+      var normalizedSchema = sql.normalizeSchema(recordset);
+      connections[connection].config.schema = normalizedSchema;
+      if (!connections[connection].persistent) {
+        mssqlConnect &#x26;&#x26; mssqlConnect.close();
+      }
+      cb(null, normalizedSchema);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.destroy" id="apidoc.element.sails-sqlserver.destroy">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>destroy
+        <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function (connection, collection, options, cb) {
+  var tableName = collection;
+  var statement = &#x27;DELETE FROM [&#x27; + tableName + &#x27;] &#x27;;
+  statement += sql.serializeOptions(collection, options);
+  adapter.connectConnection(connection, function __DELETE__(err, uniqId) {
+    if (err) {
+      console.error(err);
+      return cb(err);
+    }
+
+    adapter.find(connection, collection, options, function (err, records){
+      if (err) return cb(err);
+
+      uniqId = uniqId || false;
+      var mssqlConnect;
+      if (!uniqId) {
+        mssqlConnect = connections[connection].mssqlConnection;
+      }
+      else {
+        mssqlConnect = connections[connection].mssqlConnection[uniqId];
+      }
+
+      var request = new mssql.Request(mssqlConnect);
+      request.query(statement, function(err, emptyDeleteRecordSet) {
+        if (err) return cb(err);
+        if (!connections[connection].persistent) {
+          mssqlConnect &#x26;&#x26; mssqlConnect.close();
+        }
+        cb(null, records);
+      });
+    });
+
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.drop" id="apidoc.element.sails-sqlserver.drop">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>drop
+        <span class="apidocSignatureSpan">(connection, collection, relations, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">drop = function (connection, collection, relations, cb) {
+  // Add in logic here to delete a collection (e.g. DROP TABLE logic)
+  var statement = &#x27;IF OBJECT_ID(\&#x27;dbo.&#x27;+ collection + &#x27;\&#x27;, \&#x27;U\&#x27;) IS NOT NULL DROP TABLE [&#x27; + collection + &#x27;]&#x27;;
+  adapter.connectConnection(connection, function __DROP__(err, uniqId) {
+    if (err) {
+      console.error(err);
+      return cb(err);
+    }
+
+    uniqId = uniqId || false;
+    var mssqlConnect;
+    if (!uniqId) {
+      mssqlConnect = connections[connection].mssqlConnection;
+    }
+    else {
+      mssqlConnect = connections[connection].mssqlConnection[uniqId];
+    }
+
+    var request = new mssql.Request(mssqlConnect);
+    request.query(statement, function (err) {
+      if (err) return cb(err);
+      if (!connections[connection].persistent) {
+        mssqlConnect &#x26;&#x26; mssqlConnect.close();
+      }
+      cb(null, {});
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.find" id="apidoc.element.sails-sqlserver.find">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>find
+        <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find = function (connection, collection, options, cb) {
+		// Check if this is an aggregate query and that there is something to return
+  if (options.groupBy || options.sum || options.average || options.min || options.max) {
+    if (!options.sum &#x26;&#x26; !options.average &#x26;&#x26; !options.min &#x26;&#x26; !options.max) {
+      return cb(new Error(&#x27;Cannot groupBy without a calculation&#x27;));
+    }
+  }
+
+  options.__primaryKey__ = adapter.getPrimaryKey(connection, collection);
+  var statement = sql.selectQuery(collection, options);
+  adapter.connectConnection(connection, function __FIND__(err, uniqId) {
+    if (err) {
+      console.error(err);
+      return cb(err);
+    }
+
+    uniqId = uniqId || false;
+    var mssqlConnect;
+    if (!uniqId) {
+      mssqlConnect = connections[connection].mssqlConnection;
+    }
+    else {
+      mssqlConnect = connections[connection].mssqlConnection[uniqId];
+    }
+
+    var request = new mssql.Request(mssqlConnect);
+    //console.log(&#x27;find:&#x27;, statement);
+    request.query(statement, function(err, recordset) {
+      if (err) return cb(err);
+      if (!connections[connection].persistent) {
+        mssqlConnect &#x26;&#x26; mssqlConnect.close();
+      }
+      cb(null, recordset);
+    });
+
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.getPrimaryKey" id="apidoc.element.sails-sqlserver.getPrimaryKey">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>getPrimaryKey
+        <span class="apidocSignatureSpan">(connection, collection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPrimaryKey = function (connection, collection) {
+  var pk = &#x27;id&#x27;;
+  Object.keys(connections[connection].collections[collection].definition).forEach(function(key) {
+    if(!connections[connection].collections[collection].definition[key].hasOwnProperty(&#x27;primaryKey&#x27;)) return;
+    pk = key;
+  });
+  return pk;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.join" id="apidoc.element.sails-sqlserver.join">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>join
+        <span class="apidocSignatureSpan">(connectionName, collectionName, criteria, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">join = function (connectionName, collectionName, criteria, cb) {
+  if (_.isObject(criteria)) {
+    delete criteria.select;
+  }
+
+  CursorJoin({
+    instructions: criteria,
+    parentCollection: collectionName,
+    //nativeJoins: true,
+
+    $find: function (collectionIdentity, criteria, cb) {
+      return adapter.find(connectionName, collectionIdentity, criteria, cb);
+    },
+
+    $getPK: function (collectionIdentity) {
+      if (!collectionIdentity) return;
+      var connectionObject = connections[connectionName];
+      var collection = connectionObject.collections[collectionIdentity];
+      return collection.getPrimaryKey();
+    }
+  }, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.query" id="apidoc.element.sails-sqlserver.query">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>query
+        <span class="apidocSignatureSpan">(connection, collection, query, data, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">query = function (connection, collection, query, data, cb) {
+  if (_.isFunction(data)) {
+    cb = data;
+    data = null;
+  }
+
+  adapter.connectConnection(connection, function __FIND__(err, uniqId) {
+    if (err) {
+      console.error(err);
+      return cb(err);
+    }
+
+    uniqId = uniqId || false;
+    var mssqlConnect;
+    if (!uniqId) {
+      mssqlConnect = connections[connection].mssqlConnection;
+    }
+    else {
+      mssqlConnect = connections[connection].mssqlConnection[uniqId];
+    }
+
+    var request = new mssql.Request(mssqlConnect);
+    request.query(query, function (err, recordset) {
+      if (err) return cb(err);
+      if (!connections[connection].persistent) {
+        mssqlConnect &#x26;&#x26; mssqlConnect.close();
+      }
+      cb(null, recordset);
+    });
+
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.registerConnection" id="apidoc.element.sails-sqlserver.registerConnection">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>registerConnection
+        <span class="apidocSignatureSpan">(connection, collections, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">registerConnection = function (connection, collections, cb) {
+  if (!connection.identity) return cb(new Error(&#x27;Connection is missing an identity.&#x27;));
+  if (connections[connection.identity]) return cb(new Error(&#x27;Connection is already registered.&#x27;));
+
+  // Add in logic here to initialize connection
+  // e.g. connections[connection.identity] = new Database(connection,
+  // collections);
+  connections[connection.identity] = {
+    config: connection,
+    collections: collections
+  };
+
+  return cb();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.teardown" id="apidoc.element.sails-sqlserver.teardown">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>teardown
+        <span class="apidocSignatureSpan">(conn, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">teardown = function (conn, cb) {
+  if (typeof conn == &#x27;function&#x27;) {
+    cb = conn;
+    conn = null;
+  }
+  if (!conn) {
+    _.each(connections, function (c) {
+      if (c.persistent) {
+        c.mssqlConnection &#x26;&#x26; c.mssqlConnection.close();
+      }
+      else {
+        _.each(c.mssqlConnection, function(handle) {
+          handle &#x26;&#x26; handle.close();
+        });
+      }
+    });
+    connections = { };
+    return cb();
+  }
+  if (!connections[conn]) return cb();
+
+  if (connections[conn].persistent) {
+    connections[conn].mssqlConnection.close();
+  }
+  else {
+    _.each(connections[conn], function(handle) {
+      handle.mssqlConnection &#x26;&#x26; handle.mssqlConnection.close();
+    });
+  }
+  delete connections[conn];
+
+  cb();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.update" id="apidoc.element.sails-sqlserver.update">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>update
+        <span class="apidocSignatureSpan">(connection, collection, options, values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (connection, collection, options, values, cb) {
+  var tableName = collection;
+  var criteria = sql.serializeOptions(collection, options);
+
+  var pk = adapter.getPrimaryKey(connection, collection);
+
+  var statement = &#x27;SELECT [&#x27; + pk + &#x27;] FROM [&#x27; + tableName + &#x27;] &#x27; + criteria;
+  adapter.connectConnection(connection, function __UPDATE__(err, uniqId) {
+    if (err) {
+      console.error(err);
+      return cb(err);
+    }
+
+    uniqId = uniqId || false;
+    var mssqlConnect;
+    if (!uniqId) {
+      mssqlConnect = connections[connection].mssqlConnection;
+    }
+    else {
+      mssqlConnect = connections[connection].mssqlConnection[uniqId];
+    }
+
+    var request = new mssql.Request(mssqlConnect);
+    request.query(statement, function(err, recordset) {
+      if (err) return cb(err);
+      //console.log(&#x27;updating pks&#x27;, recordset);
+      if (_.isEmpty(recordset)) {
+        return cb(null, [ ]);
+      }
+
+      var pks = [];
+      recordset.forEach(function(row) {
+        pks.push(row[pk]);
+      });
+
+      Object.keys(values).forEach(function(key) {
+        values[key] = utils.prepareValue(values[key]);
+      });
+
+      delete values[pk];
+
+      statement = &#x27;UPDATE [&#x27; + tableName + &#x27;] SET &#x27; + sql.updateCriteria(collection, values) + &#x27; &#x27;;
+      statement += sql.serializeOptions(collection, options);
+
+      request.query(statement, function(err, _recordset) {
+        if (err) return cb(err);
+
+        var criteria;
+
+        if (pks.length === 1) {
+          criteria = { where: {}, limit: 1 };
+          criteria.where[pk] = pks[0];
+        } else {
+          criteria = { where: {}};
+          criteria.where[pk] = pks;
+        }
+
+        if (!connections[connection].persistent) {
+          mssqlConnect &#x26;&#x26; mssqlConnect.close();
+        }
+        return adapter.find(connection, collection, criteria, cb);
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver.connectConnection" id="apidoc.module.sails-sqlserver.connectConnection">module sails-sqlserver.connectConnection</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.connectConnection.connectConnection" id="apidoc.element.sails-sqlserver.connectConnection.connectConnection">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>connectConnection
+        <span class="apidocSignatureSpan">(connection, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">connectConnection = function (connection, cb){
+  var uniqId = _.uniqueId();
+  var isPersistent = connections[connection].config.persistent;
+
+  if (isPersistent &#x26;&#x26; (!connections[connection].mssqlConnection || !connections[connection].mssqlConnection.connected)) {
+    connections[connection].mssqlConnection = new mssql.Connection(marshalConfig(connections[connection].config));
+    connections[connection].mssqlConnection.connect()
+      .then(cb);
+  }
+  else if (!isPersistent &#x26;&#x26; (!connections[connection].mssqlConnection || !connections[connection].mssqlConnection[uniqId] || !connections
+[connection].mssqlConnection[uniqId].connected)) {
+    if (!connections[connection].mssqlConnection) {
+      connections[connection].mssqlConnection = [];
+    }
+
+    connections[connection].mssqlConnection[uniqId] = new mssql.Connection(marshalConfig(connections[connection].config));
+    connections[connection].mssqlConnection[uniqId].connect()
+      .then(function(err) {
+        cb(err, uniqId);
+      });
+  }
+  else {
+    _.defer(cb);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver.create" id="apidoc.module.sails-sqlserver.create">module sails-sqlserver.create</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.create.create" id="apidoc.element.sails-sqlserver.create.create">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>create
+        <span class="apidocSignatureSpan">(connection, collection, values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (connection, collection, values, cb) {
+  var identityInsert = false;
+  var pk = adapter.getPrimaryKey(connection, collection);
+  //console.log(&#x27;pk=&#x27;, pk);
+  Object.keys(values).forEach(function(key) {
+    values[key] = utils.prepareValue(values[key]);
+    if (pk == key &#x26;&#x26; pk == &#x27;id&#x27;) {
+      identityInsert = true;
+      //console.log(pk, &#x27;==&#x27;, key);
+    }
+  });
+  var statement = sql.insertQuery(collection, values);
+  if (identityInsert) {
+    statement = &#x27;SET IDENTITY_INSERT &#x27;+ collection + &#x27; ON; &#x27;+
+      statement +
+      &#x27;SET IDENTITY_INSERT &#x27;+ collection + &#x27; OFF;&#x27;;
+  }
+
+  //console.log(&#x27;create statement:&#x27;, statement);
+
+  adapter.connectConnection(connection, function __CREATE__(err, uniqId) {
+    if (err) {
+      console.error(err);
+      return cb(err);
+    }
+
+    uniqId = uniqId || false;
+    var mssqlConnect;
+    if (!uniqId) {
+      mssqlConnect = connections[connection].mssqlConnection;
+    }
+    else {
+      mssqlConnect = connections[connection].mssqlConnection[uniqId];
+    }
+
+    var request = new mssql.Request(mssqlConnect);
+    request.query(statement, function(err, recordsets) {
+      if (err) {
+        console.error(err);
+        return cb(err);
+      }
+      var recordset = recordsets[0];
+      var model = values;
+      if (recordset.id) {
+        model = _.extend({}, values, {
+          id: recordset.id
+        });
+      }
+
+      var _query = new Query(connections[connection].collections[collection].definition);
+      var castValues = _query.cast(model);
+
+      //console.log(&#x27;castValues&#x27;, castValues);
+      if (!connections[connection].persistent) {
+        mssqlConnect &#x26;&#x26; mssqlConnect.close();
+      }
+      cb(err, castValues);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver.define" id="apidoc.module.sails-sqlserver.define">module sails-sqlserver.define</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.define.define" id="apidoc.element.sails-sqlserver.define.define">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>define
+        <span class="apidocSignatureSpan">(connection, collection, definition, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">define = function (connection, collection, definition, cb) {
+			// Add in logic here to create a collection (e.g. CREATE TABLE logic)
+  adapter.connectConnection(connection, function __DEFINE__(err, uniqId) {
+    if (err) {
+      console.error(err);
+      return cb(err);
+    }
+    var schema = sql.schema(collection, definition);
+    var statement = &#x27;CREATE TABLE [&#x27; + collection + &#x27;] (&#x27; + schema + &#x27;)&#x27;;
+
+    uniqId = uniqId || false;
+    var mssqlConnect;
+    if (!uniqId) {
+      mssqlConnect = connections[connection].mssqlConnection;
+    }
+    else {
+      mssqlConnect = connections[connection].mssqlConnection[uniqId];
+    }
+
+    var request = new mssql.Request(mssqlConnect);
+    request.query(statement, function(err, recordset) {
+      if (err) return cb(err);
+      if (!connections[connection].persistent) {
+        mssqlConnect &#x26;&#x26; mssqlConnect.close();
+      }
+      cb(null, {});
+    });
+
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver.describe" id="apidoc.module.sails-sqlserver.describe">module sails-sqlserver.describe</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.describe.describe" id="apidoc.element.sails-sqlserver.describe.describe">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>describe
+        <span class="apidocSignatureSpan">(connection, collection, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">describe = function (connection, collection, cb) {
+			// Add in logic here to describe a collection (e.g. DESCRIBE TABLE logic)
+  var tableName = collection;
+  var statement = &#x22;SELECT c.name AS ColumnName,TYPE_NAME(c.user_type_id) AS TypeName,c.is_nullable AS Nullable,c.is_identity AS
+AutoIncrement,ISNULL((SELECT is_unique FROM sys.indexes i LEFT OUTER JOIN sys.index_columns ic ON i.index_id=ic.index_id WHERE i
+.object_id=t.object_id AND ic.object_id=t.object_id AND ic.column_id=c.column_id),0) AS [Unique],ISNULL((SELECT is_primary_key FROM
+ sys.indexes i LEFT OUTER JOIN sys.index_columns ic ON i.index_id=ic.index_id WHERE i.object_id=t.object_id AND ic.object_id=t.object_id
+ AND ic.column_id=c.column_id),0) AS PrimaryKey,ISNULL((SELECT COUNT(*) FROM sys.indexes i LEFT OUTER JOIN sys.index_columns ic
+ON i.index_id=ic.index_id WHERE i.object_id=t.object_id AND ic.object_id=t.object_id AND ic.column_id=c.column_id),0) AS Indexed
+ FROM sys.tables t INNER JOIN sys.columns c ON c.object_id=t.object_id LEFT OUTER JOIN sys.index_columns ic ON ic.object_id=t.object_id
+ WHERE t.name=&#x27;&#x22; + tableName + &#x22;&#x27;&#x22;;
+  adapter.connectConnection(connection, function __DESCRIBE__(err, uniqId) {
+    if (err) {
+      console.error(err);
+      return cb(err);
+    }
+
+    uniqId = uniqId || false;
+    var mssqlConnect;
+    if (!uniqId) {
+      mssqlConnect = connections[connection].mssqlConnection;
+    }
+    else {
+      mssqlConnect = connections[connection].mssqlConnection[uniqId];
+    }
+
+    var request = new mssql.Request(mssqlConnect);
+    request.query(statement, function(err, recordset) {
+      if (err) return cb(err);
+      if (recordset.length === 0) return cb();
+      var normalizedSchema = sql.normalizeSchema(recordset);
+      connections[connection].config.schema = normalizedSchema;
+      if (!connections[connection].persistent) {
+        mssqlConnect &#x26;&#x26; mssqlConnect.close();
+      }
+      cb(null, normalizedSchema);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver.destroy" id="apidoc.module.sails-sqlserver.destroy">module sails-sqlserver.destroy</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.destroy.destroy" id="apidoc.element.sails-sqlserver.destroy.destroy">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>destroy
+        <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function (connection, collection, options, cb) {
+  var tableName = collection;
+  var statement = &#x27;DELETE FROM [&#x27; + tableName + &#x27;] &#x27;;
+  statement += sql.serializeOptions(collection, options);
+  adapter.connectConnection(connection, function __DELETE__(err, uniqId) {
+    if (err) {
+      console.error(err);
+      return cb(err);
+    }
+
+    adapter.find(connection, collection, options, function (err, records){
+      if (err) return cb(err);
+
+      uniqId = uniqId || false;
+      var mssqlConnect;
+      if (!uniqId) {
+        mssqlConnect = connections[connection].mssqlConnection;
+      }
+      else {
+        mssqlConnect = connections[connection].mssqlConnection[uniqId];
+      }
+
+      var request = new mssql.Request(mssqlConnect);
+      request.query(statement, function(err, emptyDeleteRecordSet) {
+        if (err) return cb(err);
+        if (!connections[connection].persistent) {
+          mssqlConnect &#x26;&#x26; mssqlConnect.close();
+        }
+        cb(null, records);
+      });
+    });
+
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver.drop" id="apidoc.module.sails-sqlserver.drop">module sails-sqlserver.drop</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.drop.drop" id="apidoc.element.sails-sqlserver.drop.drop">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>drop
+        <span class="apidocSignatureSpan">(connection, collection, relations, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">drop = function (connection, collection, relations, cb) {
+  // Add in logic here to delete a collection (e.g. DROP TABLE logic)
+  var statement = &#x27;IF OBJECT_ID(\&#x27;dbo.&#x27;+ collection + &#x27;\&#x27;, \&#x27;U\&#x27;) IS NOT NULL DROP TABLE [&#x27; + collection + &#x27;]&#x27;;
+  adapter.connectConnection(connection, function __DROP__(err, uniqId) {
+    if (err) {
+      console.error(err);
+      return cb(err);
+    }
+
+    uniqId = uniqId || false;
+    var mssqlConnect;
+    if (!uniqId) {
+      mssqlConnect = connections[connection].mssqlConnection;
+    }
+    else {
+      mssqlConnect = connections[connection].mssqlConnection[uniqId];
+    }
+
+    var request = new mssql.Request(mssqlConnect);
+    request.query(statement, function (err) {
+      if (err) return cb(err);
+      if (!connections[connection].persistent) {
+        mssqlConnect &#x26;&#x26; mssqlConnect.close();
+      }
+      cb(null, {});
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver.find" id="apidoc.module.sails-sqlserver.find">module sails-sqlserver.find</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.find.find" id="apidoc.element.sails-sqlserver.find.find">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>find
+        <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find = function (connection, collection, options, cb) {
+		// Check if this is an aggregate query and that there is something to return
+  if (options.groupBy || options.sum || options.average || options.min || options.max) {
+    if (!options.sum &#x26;&#x26; !options.average &#x26;&#x26; !options.min &#x26;&#x26; !options.max) {
+      return cb(new Error(&#x27;Cannot groupBy without a calculation&#x27;));
+    }
+  }
+
+  options.__primaryKey__ = adapter.getPrimaryKey(connection, collection);
+  var statement = sql.selectQuery(collection, options);
+  adapter.connectConnection(connection, function __FIND__(err, uniqId) {
+    if (err) {
+      console.error(err);
+      return cb(err);
+    }
+
+    uniqId = uniqId || false;
+    var mssqlConnect;
+    if (!uniqId) {
+      mssqlConnect = connections[connection].mssqlConnection;
+    }
+    else {
+      mssqlConnect = connections[connection].mssqlConnection[uniqId];
+    }
+
+    var request = new mssql.Request(mssqlConnect);
+    //console.log(&#x27;find:&#x27;, statement);
+    request.query(statement, function(err, recordset) {
+      if (err) return cb(err);
+      if (!connections[connection].persistent) {
+        mssqlConnect &#x26;&#x26; mssqlConnect.close();
+      }
+      cb(null, recordset);
+    });
+
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver.getPrimaryKey" id="apidoc.module.sails-sqlserver.getPrimaryKey">module sails-sqlserver.getPrimaryKey</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.getPrimaryKey.getPrimaryKey" id="apidoc.element.sails-sqlserver.getPrimaryKey.getPrimaryKey">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>getPrimaryKey
+        <span class="apidocSignatureSpan">(connection, collection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getPrimaryKey = function (connection, collection) {
+  var pk = &#x27;id&#x27;;
+  Object.keys(connections[connection].collections[collection].definition).forEach(function(key) {
+    if(!connections[connection].collections[collection].definition[key].hasOwnProperty(&#x27;primaryKey&#x27;)) return;
+    pk = key;
+  });
+  return pk;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver.join" id="apidoc.module.sails-sqlserver.join">module sails-sqlserver.join</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.join.join" id="apidoc.element.sails-sqlserver.join.join">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>join
+        <span class="apidocSignatureSpan">(connectionName, collectionName, criteria, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">join = function (connectionName, collectionName, criteria, cb) {
+  if (_.isObject(criteria)) {
+    delete criteria.select;
+  }
+
+  CursorJoin({
+    instructions: criteria,
+    parentCollection: collectionName,
+    //nativeJoins: true,
+
+    $find: function (collectionIdentity, criteria, cb) {
+      return adapter.find(connectionName, collectionIdentity, criteria, cb);
+    },
+
+    $getPK: function (collectionIdentity) {
+      if (!collectionIdentity) return;
+      var connectionObject = connections[connectionName];
+      var collection = connectionObject.collections[collectionIdentity];
+      return collection.getPrimaryKey();
+    }
+  }, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver.query" id="apidoc.module.sails-sqlserver.query">module sails-sqlserver.query</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.query.query" id="apidoc.element.sails-sqlserver.query.query">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>query
+        <span class="apidocSignatureSpan">(connection, collection, query, data, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">query = function (connection, collection, query, data, cb) {
+  if (_.isFunction(data)) {
+    cb = data;
+    data = null;
+  }
+
+  adapter.connectConnection(connection, function __FIND__(err, uniqId) {
+    if (err) {
+      console.error(err);
+      return cb(err);
+    }
+
+    uniqId = uniqId || false;
+    var mssqlConnect;
+    if (!uniqId) {
+      mssqlConnect = connections[connection].mssqlConnection;
+    }
+    else {
+      mssqlConnect = connections[connection].mssqlConnection[uniqId];
+    }
+
+    var request = new mssql.Request(mssqlConnect);
+    request.query(query, function (err, recordset) {
+      if (err) return cb(err);
+      if (!connections[connection].persistent) {
+        mssqlConnect &#x26;&#x26; mssqlConnect.close();
+      }
+      cb(null, recordset);
+    });
+
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver.query.prototype" id="apidoc.module.sails-sqlserver.query.prototype">module sails-sqlserver.query.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.query.prototype.cast" id="apidoc.element.sails-sqlserver.query.prototype.cast">
+        function <span class="apidocSignatureSpan">sails-sqlserver.query.prototype.</span>cast
+        <span class="apidocSignatureSpan">(values)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">cast = function (values) {
+	
+	var self = this,
+		_values = _.clone(values);
+
+	Object.keys(values).forEach(function(key) {
+
+		if(!self._schema[key]) return;
+
+		// Lookup schema type
+		var type = self._schema[key].type;
+		if(!type) return;
+
+		// Attempt to parse Array or JSON type
+		if(type === &#x27;array&#x27; || type === &#x27;json&#x27;) {
+			try {
+				_values[key] = JSON.parse(values[key]);
+			} catch(e) {
+				return;
+			}
+		}
+
+		// Convert booleans back to true/false
+		if(type === &#x27;boolean&#x27;) {
+			var val = values[key];
+			if(val === 0) _values[key] = false;
+			if(val === 1) _values[key] = true;
+		}
+
+    if (type === &#x27;binary&#x27;) {
+      _values[key] = new Buffer(_values[key] || [ ]);
+    }
+
+	});
+
+	return _values;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver.registerConnection" id="apidoc.module.sails-sqlserver.registerConnection">module sails-sqlserver.registerConnection</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.registerConnection.registerConnection" id="apidoc.element.sails-sqlserver.registerConnection.registerConnection">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>registerConnection
+        <span class="apidocSignatureSpan">(connection, collections, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">registerConnection = function (connection, collections, cb) {
+  if (!connection.identity) return cb(new Error(&#x27;Connection is missing an identity.&#x27;));
+  if (connections[connection.identity]) return cb(new Error(&#x27;Connection is already registered.&#x27;));
+
+  // Add in logic here to initialize connection
+  // e.g. connections[connection.identity] = new Database(connection,
+  // collections);
+  connections[connection.identity] = {
+    config: connection,
+    collections: collections
+  };
+
+  return cb();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver.sql" id="apidoc.module.sails-sqlserver.sql">module sails-sqlserver.sql</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql._schema" id="apidoc.element.sails-sqlserver.sql._schema">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>_schema
+        <span class="apidocSignatureSpan">(collectionName, attribute, attrName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_schema = function (collectionName, attribute, attrName) {
+
+    attrName = &#x27;[&#x27; + attrName + &#x27;]&#x27;;
+    var type = sqlTypeCast(attribute.type);
+
+		if (attribute.primaryKey) {
+
+			// If type is an integer, set auto increment
+			if(type === &#x27;INT&#x27;) {
+				return attrName + &#x27; INT IDENTITY PRIMARY KEY&#x27;;
+			}
+
+			// Just set NOT NULL on other types
+			return attrName + &#x27; VARCHAR(255) NOT NULL PRIMARY KEY&#x27;;
+		}
+
+		// Process UNIQUE field
+		if (attribute.unique) {
+			return attrName + &#x27; &#x27; + type + &#x27; UNIQUE&#x27;;
+		}
+
+		return attrName + &#x27; &#x27; + type + &#x27; NULL&#x27;;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			return memo;
+		}, {});
+	},
+
+	// @returns ALTER query for adding a column
+	addColumn: function (collectionName, attrName, attrDef) {
+		var tableName = collectionName;
+		var columnDefinition = sql.<span class="apidocCodeKeywordSpan">_schema</span>(collectionName, attrDef, attrName);
+		return &#x27;ALTER TABLE [&#x27; + tableName + &#x27;] ADD &#x27; + columnDefinition;
+	},
+
+	// @returns ALTER query for dropping a column
+	removeColumn: function (collectionName, attrName) {
+	var tableName = collectionName;
+	attrName = attrName;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.addColumn" id="apidoc.element.sails-sqlserver.sql.addColumn">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>addColumn
+        <span class="apidocSignatureSpan">(collectionName, attrName, attrDef)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">addColumn = function (collectionName, attrName, attrDef) {
+		var tableName = collectionName;
+		var columnDefinition = sql._schema(collectionName, attrDef, attrName);
+		return &#x27;ALTER TABLE [&#x27; + tableName + &#x27;] ADD &#x27; + columnDefinition;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.attributes" id="apidoc.element.sails-sqlserver.sql.attributes">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>attributes
+        <span class="apidocSignatureSpan">(collectionName, attributes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">attributes = function (collectionName, attributes) {
+		return sql.build(collectionName, attributes, sql.prepareAttribute);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			query = outerOffsetQuery;
+		}
+		return query;
+	},
+
+	insertQuery: function (collectionName, data) {
+		var tableName = collectionName;
+    	return &#x27;INSERT INTO [&#x27; + tableName + &#x27;] &#x27; + &#x27;(&#x27; + sql.<span class="apidocCodeKeywordSpan">attributes
+</span>(collectionName, data) + &#x27;)&#x27; + &#x27; VALUES (&#x27; + sql.values(collectionName, data) + &#x27;); SELECT @@IDENTITY
+ AS [id]&#x27;;
+	},
+
+	// Create a schema csv for a DDL query
+	schema: function(collectionName, attributes) {
+		return sql.build(collectionName, attributes, sql._schema);
+	},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.build" id="apidoc.element.sails-sqlserver.sql.build">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>build
+        <span class="apidocSignatureSpan">(collectionName, collection, fn, separator, keyOverride, parentKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">build = function (collectionName, collection, fn, separator, keyOverride, parentKey) {
+
+		separator = separator || &#x27;, &#x27;;
+		var $sql = &#x27;&#x27;;
+
+		_.each(collection, function(value, key) {
+			$sql += fn(collectionName, value, keyOverride || key, parentKey);
+
+			// (always append separator)
+			$sql += separator;
+		});
+
+		return _.str.rtrim($sql, separator);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	insertQuery: function (collectionName, data) {
+		var tableName = collectionName;
+	return &#x27;INSERT INTO [&#x27; + tableName + &#x27;] &#x27; + &#x27;(&#x27; + sql.attributes(collectionName, data) + &#x27;)&#
+x27; + &#x27; VALUES (&#x27; + sql.values(collectionName, data) + &#x27;); SELECT @@IDENTITY AS [id]&#x27;;
+	},
+
+	// Create a schema csv for a DDL query
+	schema: function(collectionName, attributes) {
+		return sql.<span class="apidocCodeKeywordSpan">build</span>(collectionName, attributes, sql._schema);
+	},
+
+	_schema: function(collectionName, attribute, attrName) {
+
+attrName = &#x27;[&#x27; + attrName + &#x27;]&#x27;;
+var type = sqlTypeCast(attribute.type);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.escape" id="apidoc.element.sails-sqlserver.sql.escape">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>escape
+        <span class="apidocSignatureSpan">(val, stringifyObjects, timeZone)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">escape = function (val, stringifyObjects, timeZone) {
+
+		if (val === undefined || val === null) {
+			return &#x27;NULL&#x27;;
+		}
+
+		switch (typeof val) {
+			case &#x27;boolean&#x27;: return (val) ? &#x27;1&#x27; : &#x27;0&#x27;;
+			case &#x27;number&#x27;: return val + &#x27;&#x27;;
+		}
+
+		if (typeof val === &#x27;object&#x27;) {
+			val = val.toString();
+		}
+
+		val = val.replace(/[\&#x27;]/g, function(s) {
+			switch(s) {
+				case &#x22;\&#x27;&#x22;: return &#x22;&#x27;&#x27;&#x22;;
+				default: return &#x22; &#x22;;
+			}
+		});
+
+		return &#x22;&#x27;&#x22; + val + &#x22;&#x27;&#x22;;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+		// Cast functions to strings
+		if (_.isFunction(value)) {
+			value = value.toString();
+		}
+
+		// Escape (also wraps in quotes)
+		return sql.<span class="apidocCodeKeywordSpan">escape</span>(value);
+	},
+
+	prepareAttribute: function(collectionName, value, attrName) {
+		return &#x27;[&#x27; + attrName + &#x27;]&#x27;;
+	},
+
+	// Starting point for predicate evaluation
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.escapeId" id="apidoc.element.sails-sqlserver.sql.escapeId">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>escapeId
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">escapeId = function (val) {
+		return &#x22;[&#x22; + val.replace(/&#x27;/g, &#x22;&#x27;&#x27;&#x22;) + &#x22;]&#x22;;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.insertQuery" id="apidoc.element.sails-sqlserver.sql.insertQuery">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>insertQuery
+        <span class="apidocSignatureSpan">(collectionName, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">insertQuery = function (collectionName, data) {
+		var tableName = collectionName;
+    	return &#x27;INSERT INTO [&#x27; + tableName + &#x27;] &#x27; + &#x27;(&#x27; + sql.attributes(collectionName, data) + &#x27;)&#x27; + &#x27; VALUES (&#x27; + sql.values(collectionName
+, data) + &#x27;); SELECT @@IDENTITY AS [id]&#x27;;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.normalizeSchema" id="apidoc.element.sails-sqlserver.sql.normalizeSchema">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>normalizeSchema
+        <span class="apidocSignatureSpan">(schema)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">normalizeSchema = function (schema) {
+		return _.reduce(schema, function(memo, field) {
+
+			// Marshal mssql DESCRIBE to waterline collection semantics
+			var attrName = field.ColumnName;
+			var type = field.TypeName;
+
+			memo[attrName] = {
+				type: type
+				//defaultsTo: field.Default
+			};
+
+			memo[attrName].autoIncrement = field.AutoIncrement;
+			memo[attrName].primaryKey = field.PrimaryKey;
+			memo[attrName].unique = field.Unique;
+			memo[attrName].indexed = field.Indexed;
+			memo[attrName].nullable = field.Nullable;
+
+			return memo;
+		}, {});
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.predicate" id="apidoc.element.sails-sqlserver.sql.predicate">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>predicate
+        <span class="apidocSignatureSpan">(collectionName, criterion, key, parentKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">predicate = function (collectionName, criterion, key, parentKey) {
+
+		var queryPart = &#x27;&#x27;;
+
+		if (parentKey) {
+			return sql.prepareCriterion(collectionName, criterion, key, parentKey);
+		}
+
+		// OR
+		if (key.toLowerCase() === &#x27;or&#x27;) {
+			queryPart = sql.build(collectionName, criterion, sql.where, &#x27; OR &#x27;);
+			return &#x27; ( &#x27; + queryPart + &#x27; ) &#x27;;
+		}
+
+		// AND
+		else if (key.toLowerCase() === &#x27;and&#x27;) {
+			queryPart = sql.build(collectionName, criterion, sql.where, &#x27; AND &#x27;);
+			return &#x27; ( &#x27; + queryPart + &#x27; ) &#x27;;
+		}
+
+		// IN
+		else if (_.isArray(criterion)) {
+			values = sql.values(collectionName, criterion, key) || &#x27;NULL&#x27;;
+			queryPart = sql.prepareAttribute(collectionName, null, key) + &#x22; IN (&#x22; + values + &#x22;)&#x22;;
+			return queryPart;
+		}
+
+		// LIKE
+		else if (key.toLowerCase() === &#x27;like&#x27;) {
+			return sql.build(collectionName, criterion, function(collectionName, value, attrName) {
+				var attrStr = sql.prepareAttribute(collectionName, value, attrName);
+				if (_.isRegExp(value)) {
+					throw new Error(&#x27;RegExp not supported&#x27;);
+        		}
+				var valueStr = sql.prepareValue(collectionName, value, attrName);
+				// Handle escaped percent (%) signs [encoded as %%%]
+				valueStr = valueStr.replace(/%%%/g, &#x27;\\%&#x27;);
+
+				return attrStr + &#x22; LIKE &#x22; + valueStr;
+			}, &#x27; AND &#x27;);
+		}
+
+		// NOT
+		else if (key.toLowerCase() === &#x27;not&#x27;) {
+			throw new Error(&#x27;NOT not supported yet!&#x27;);
+		}
+
+		// Basic criteria item
+		else {
+			return sql.prepareCriterion(collectionName, criterion, key);
+		}
+
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.prepareAttribute" id="apidoc.element.sails-sqlserver.sql.prepareAttribute">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>prepareAttribute
+        <span class="apidocSignatureSpan">(collectionName, value, attrName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">prepareAttribute = function (collectionName, value, attrName) {
+		return &#x27;[&#x27; + attrName + &#x27;]&#x27;;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		// or if one exists, the parent key
+		var attrStr, valueStr;
+
+
+		// Special comparator case
+		if (parentKey) {
+
+			attrStr = sql.<span class="apidocCodeKeywordSpan">prepareAttribute</span>(collectionName, value, parentKey);
+			valueStr = sql.prepareValue(collectionName, value, parentKey);
+
+			// Why don&#x27;t we strip you out of those bothersome apostrophes?
+			var nakedButClean = _.str.trim(valueStr,&#x27;\&#x27;&#x27;);
+
+			if (key === &#x27;&#x3c;&#x27; || key === &#x27;lessThan&#x27;) return attrStr + &#x27;&#x3c;&#x27; + valueStr;
+			else if (key === &#x27;&#x3c;=&#x27; || key === &#x27;lessThanOrEqual&#x27;) return attrStr + &#x27;&#x3c;=&#x27; + valueStr;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.prepareCriterion" id="apidoc.element.sails-sqlserver.sql.prepareCriterion">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>prepareCriterion
+        <span class="apidocSignatureSpan">(collectionName, value, key, parentKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">prepareCriterion = function (collectionName, value, key, parentKey) {
+
+		if (validSubAttrCriteria(value)) {
+			return sql.where(collectionName, value, null, key);
+		}
+
+		// Build escaped attr and value strings using either the key,
+		// or if one exists, the parent key
+		var attrStr, valueStr;
+
+
+		// Special comparator case
+		if (parentKey) {
+
+			attrStr = sql.prepareAttribute(collectionName, value, parentKey);
+			valueStr = sql.prepareValue(collectionName, value, parentKey);
+
+			// Why don&#x27;t we strip you out of those bothersome apostrophes?
+			var nakedButClean = _.str.trim(valueStr,&#x27;\&#x27;&#x27;);
+
+			if (key === &#x27;&#x3c;&#x27; || key === &#x27;lessThan&#x27;) return attrStr + &#x27;&#x3c;&#x27; + valueStr;
+			else if (key === &#x27;&#x3c;=&#x27; || key === &#x27;lessThanOrEqual&#x27;) return attrStr + &#x27;&#x3c;=&#x27; + valueStr;
+			else if (key === &#x27;&#x3e;&#x27; || key === &#x27;greaterThan&#x27;) return attrStr + &#x27;&#x3e;&#x27; + valueStr;
+			else if (key === &#x27;&#x3e;=&#x27; || key === &#x27;greaterThanOrEqual&#x27;) return attrStr + &#x27;&#x3e;=&#x27; + valueStr;
+			else if (key === &#x27;!&#x27; || key === &#x27;not&#x27;) {
+				if (value === null) return attrStr + &#x27; IS NOT NULL&#x27;;
+        else if (_.isArray(value)) {
+          //return attrStr + &#x27; NOT IN (&#x27; + valueStr.split(&#x27;,&#x27;) + &#x27;)&#x27;;
+          return attrStr + &#x22; NOT IN (&#x22; + sql.values(collectionName, value, key) + &#x22;)&#x22;;
+        }
+				else return attrStr + &#x27;&#x3c;&#x3e;&#x27; + valueStr;
+			}
+			else if (key === &#x27;like&#x27;) return attrStr + &#x27; LIKE \&#x27;&#x27; + nakedButClean + &#x27;\&#x27;&#x27;;
+			else if (key === &#x27;contains&#x27;) return attrStr + &#x27; LIKE \&#x27;%&#x27; + nakedButClean + &#x27;%\&#x27;&#x27;;
+			else if (key === &#x27;startsWith&#x27;) return attrStr + &#x27; LIKE \&#x27;&#x27; + nakedButClean + &#x27;%\&#x27;&#x27;;
+			else if (key === &#x27;endsWith&#x27;) return attrStr + &#x27; LIKE \&#x27;%&#x27; + nakedButClean + &#x27;\&#x27;&#x27;;
+			else throw new Error(&#x27;Unknown comparator: &#x27; + key);
+		} else {
+			attrStr = sql.prepareAttribute(collectionName, value, key);
+			valueStr = sql.prepareValue(collectionName, value, key);
+			if (_.isNull(value)) {
+				return attrStr + &#x22; IS NULL&#x22;;
+			} else return attrStr + &#x22;=&#x22; + valueStr;
+		}
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+	// Recursively parse a predicate calculus and build a SQL query
+	predicate: function(collectionName, criterion, key, parentKey) {
+
+		var queryPart = &#x27;&#x27;;
+
+		if (parentKey) {
+			return sql.<span class="apidocCodeKeywordSpan">prepareCriterion</span>(collectionName, criterion, key, parentKey);
+		}
+
+		// OR
+		if (key.toLowerCase() === &#x27;or&#x27;) {
+			queryPart = sql.build(collectionName, criterion, sql.where, &#x27; OR &#x27;);
+			return &#x27; ( &#x27; + queryPart + &#x27; ) &#x27;;
+		}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.prepareValue" id="apidoc.element.sails-sqlserver.sql.prepareValue">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>prepareValue
+        <span class="apidocSignatureSpan">(collectionName, value, attrName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">prepareValue = function (collectionName, value, attrName) {
+		// Cast dates to SQL
+		if (_.isDate(value)) {
+			value = toSqlDate(value);
+		}
+
+		// Cast functions to strings
+		if (_.isFunction(value)) {
+			value = value.toString();
+		}
+
+		// Escape (also wraps in quotes)
+		return sql.escape(value);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		var attrStr, valueStr;
+
+
+		// Special comparator case
+		if (parentKey) {
+
+			attrStr = sql.prepareAttribute(collectionName, value, parentKey);
+			valueStr = sql.<span class="apidocCodeKeywordSpan">prepareValue</span>(collectionName, value, parentKey);
+
+			// Why don&#x27;t we strip you out of those bothersome apostrophes?
+			var nakedButClean = _.str.trim(valueStr,&#x27;\&#x27;&#x27;);
+
+			if (key === &#x27;&#x3c;&#x27; || key === &#x27;lessThan&#x27;) return attrStr + &#x27;&#x3c;&#x27; + valueStr;
+			else if (key === &#x27;&#x3c;=&#x27; || key === &#x27;lessThanOrEqual&#x27;) return attrStr + &#x27;&#x3c;=&#x27; + valueStr;
+			else if (key === &#x27;&#x3e;&#x27; || key === &#x27;greaterThan&#x27;) return attrStr + &#x27;&#x3e;&#x27; + valueStr;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.removeColumn" id="apidoc.element.sails-sqlserver.sql.removeColumn">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>removeColumn
+        <span class="apidocSignatureSpan">(collectionName, attrName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">removeColumn = function (collectionName, attrName) {
+    	var tableName = collectionName;
+    	attrName = attrName;
+    	return &#x27;ALTER TABLE [&#x27; + tableName + &#x27;] DROP COLUMN &#x27; + attrName;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.schema" id="apidoc.element.sails-sqlserver.sql.schema">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>schema
+        <span class="apidocSignatureSpan">(collectionName, attributes)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">schema = function (collectionName, attributes) {
+		return sql.build(collectionName, attributes, sql._schema);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.selectQuery" id="apidoc.element.sails-sqlserver.sql.selectQuery">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>selectQuery
+        <span class="apidocSignatureSpan">(collectionName, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">selectQuery = function (collectionName, options) {
+		var query = utils.buildSelectStatement(options, collectionName);
+		query += sql.serializeOptions(collectionName, options);
+		if (options.skip){
+			var outerOffsetQuery = &#x27;SELECT &#x27;;
+			if (options.limit){
+				outerOffsetQuery += &#x27;TOP &#x27; + options.limit + &#x27; &#x27;;
+			}
+			outerOffsetQuery += &#x27;* FROM (&#x27; + query + &#x27;) __outeroffset__ WHERE __outeroffset__.__rownum__ &#x3e; &#x27; + options.skip + &#x27; &#x27;;
+			query = outerOffsetQuery;
+		}
+		return query;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.serializeOptions" id="apidoc.element.sails-sqlserver.sql.serializeOptions">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>serializeOptions
+        <span class="apidocSignatureSpan">(collectionName, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">serializeOptions = function (collectionName, options) {
+
+		var queryPart = &#x27;&#x27;;
+
+		if (options.where) {
+			queryPart += &#x27;WHERE &#x27; + sql.where(collectionName, options.where) + &#x27; &#x27;;
+		}
+
+		if (options.groupBy) {
+			queryPart += &#x27;GROUP BY &#x27;;
+
+			// Normalize to array
+			if(!Array.isArray(options.groupBy)) options.groupBy = [options.groupBy];
+			options.groupBy.forEach(function(key) {
+				queryPart += key + &#x27;, &#x27;;
+			});
+
+			// Remove trailing comma
+			queryPart = queryPart.slice(0, -2) + &#x27; &#x27;;
+    	}
+
+		//options are sorted during skip when applicable
+		if (options.sort &#x26;&#x26; !options.skip) {
+			queryPart += &#x27;ORDER BY &#x27;;
+
+			// Sort through each sort attribute criteria
+			_.each(options.sort, function(direction, attrName) {
+
+				queryPart += sql.prepareAttribute(collectionName, null, attrName) + &#x27; &#x27;;
+
+				// Basic MongoDB-style numeric sort direction
+				if (direction === 1) {
+					queryPart += &#x27;ASC, &#x27;;
+				} else {
+					queryPart += &#x27;DESC, &#x27;;
+				}
+			});
+
+			// Remove trailing comma
+			if(queryPart.slice(-2) === &#x27;, &#x27;) {
+				queryPart = queryPart.slice(0, -2) + &#x27; &#x27;;
+			}
+		}
+
+		return queryPart;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    	var tableName = collectionName;
+    	attrName = attrName;
+    	return &#x27;ALTER TABLE [&#x27; + tableName + &#x27;] DROP COLUMN &#x27; + attrName;
+	},
+
+	selectQuery: function (collectionName, options) {
+		var query = utils.buildSelectStatement(options, collectionName);
+		query += sql.<span class="apidocCodeKeywordSpan">serializeOptions</span>(collectionName, options);
+		if (options.skip){
+			var outerOffsetQuery = &#x27;SELECT &#x27;;
+			if (options.limit){
+				outerOffsetQuery += &#x27;TOP &#x27; + options.limit + &#x27; &#x27;;
+			}
+			outerOffsetQuery += &#x27;* FROM (&#x27; + query + &#x27;) __outeroffset__ WHERE __outeroffset__.__rownum__ &#x3e; &#x27; + options
+.skip + &#x27; &#x27;;
+			query = outerOffsetQuery;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.updateCriteria" id="apidoc.element.sails-sqlserver.sql.updateCriteria">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>updateCriteria
+        <span class="apidocSignatureSpan">(collectionName, values)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">updateCriteria = function (collectionName, values) {
+		var query = sql.build(collectionName, values, sql.prepareCriterion);
+		query = query.replace(/IS NULL/g, &#x27;=NULL&#x27;);
+		return query;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.values" id="apidoc.element.sails-sqlserver.sql.values">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>values
+        <span class="apidocSignatureSpan">(collectionName, values, key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">values = function (collectionName, values, key) {
+		return sql.build(collectionName, values, sql.prepareValue, &#x27;, &#x27;, key);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+			query = outerOffsetQuery;
+		}
+		return query;
+	},
+
+	insertQuery: function (collectionName, data) {
+		var tableName = collectionName;
+    	return &#x27;INSERT INTO [&#x27; + tableName + &#x27;] &#x27; + &#x27;(&#x27; + sql.attributes(collectionName, data) + &#x27
+;)&#x27; + &#x27; VALUES (&#x27; + sql.<span class="apidocCodeKeywordSpan">values</span>(collectionName, data) + &#x27;); SELECT
+ @@IDENTITY AS [id]&#x27;;
+	},
+
+	// Create a schema csv for a DDL query
+	schema: function(collectionName, attributes) {
+		return sql.build(collectionName, attributes, sql._schema);
+	},
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.sql.where" id="apidoc.element.sails-sqlserver.sql.where">
+        function <span class="apidocSignatureSpan">sails-sqlserver.sql.</span>where
+        <span class="apidocSignatureSpan">(collectionName, where, key, parentKey)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">where = function (collectionName, where, key, parentKey) {
+		return sql.build(collectionName, where, sql.predicate, &#x27; AND &#x27;, undefined, parentKey);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		query = query.replace(/IS NULL/g, &#x27;=NULL&#x27;);
+		return query;
+	},
+
+	prepareCriterion: function(collectionName, value, key, parentKey) {
+
+		if (validSubAttrCriteria(value)) {
+			return sql.<span class="apidocCodeKeywordSpan">where</span>(collectionName, value, null, key);
+		}
+
+		// Build escaped attr and value strings using either the key,
+		// or if one exists, the parent key
+		var attrStr, valueStr;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver.teardown" id="apidoc.module.sails-sqlserver.teardown">module sails-sqlserver.teardown</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.teardown.teardown" id="apidoc.element.sails-sqlserver.teardown.teardown">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>teardown
+        <span class="apidocSignatureSpan">(conn, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">teardown = function (conn, cb) {
+  if (typeof conn == &#x27;function&#x27;) {
+    cb = conn;
+    conn = null;
+  }
+  if (!conn) {
+    _.each(connections, function (c) {
+      if (c.persistent) {
+        c.mssqlConnection &#x26;&#x26; c.mssqlConnection.close();
+      }
+      else {
+        _.each(c.mssqlConnection, function(handle) {
+          handle &#x26;&#x26; handle.close();
+        });
+      }
+    });
+    connections = { };
+    return cb();
+  }
+  if (!connections[conn]) return cb();
+
+  if (connections[conn].persistent) {
+    connections[conn].mssqlConnection.close();
+  }
+  else {
+    _.each(connections[conn], function(handle) {
+      handle.mssqlConnection &#x26;&#x26; handle.mssqlConnection.close();
+    });
+  }
+  delete connections[conn];
+
+  cb();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver.update" id="apidoc.module.sails-sqlserver.update">module sails-sqlserver.update</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.update.update" id="apidoc.element.sails-sqlserver.update.update">
+        function <span class="apidocSignatureSpan">sails-sqlserver.</span>update
+        <span class="apidocSignatureSpan">(connection, collection, options, values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (connection, collection, options, values, cb) {
+  var tableName = collection;
+  var criteria = sql.serializeOptions(collection, options);
+
+  var pk = adapter.getPrimaryKey(connection, collection);
+
+  var statement = &#x27;SELECT [&#x27; + pk + &#x27;] FROM [&#x27; + tableName + &#x27;] &#x27; + criteria;
+  adapter.connectConnection(connection, function __UPDATE__(err, uniqId) {
+    if (err) {
+      console.error(err);
+      return cb(err);
+    }
+
+    uniqId = uniqId || false;
+    var mssqlConnect;
+    if (!uniqId) {
+      mssqlConnect = connections[connection].mssqlConnection;
+    }
+    else {
+      mssqlConnect = connections[connection].mssqlConnection[uniqId];
+    }
+
+    var request = new mssql.Request(mssqlConnect);
+    request.query(statement, function(err, recordset) {
+      if (err) return cb(err);
+      //console.log(&#x27;updating pks&#x27;, recordset);
+      if (_.isEmpty(recordset)) {
+        return cb(null, [ ]);
+      }
+
+      var pks = [];
+      recordset.forEach(function(row) {
+        pks.push(row[pk]);
+      });
+
+      Object.keys(values).forEach(function(key) {
+        values[key] = utils.prepareValue(values[key]);
+      });
+
+      delete values[pk];
+
+      statement = &#x27;UPDATE [&#x27; + tableName + &#x27;] SET &#x27; + sql.updateCriteria(collection, values) + &#x27; &#x27;;
+      statement += sql.serializeOptions(collection, options);
+
+      request.query(statement, function(err, _recordset) {
+        if (err) return cb(err);
+
+        var criteria;
+
+        if (pks.length === 1) {
+          criteria = { where: {}, limit: 1 };
+          criteria.where[pk] = pks[0];
+        } else {
+          criteria = { where: {}};
+          criteria.where[pk] = pks;
+        }
+
+        if (!connections[connection].persistent) {
+          mssqlConnect &#x26;&#x26; mssqlConnect.close();
+        }
+        return adapter.find(connection, collection, criteria, cb);
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-sqlserver.utils" id="apidoc.module.sails-sqlserver.utils">module sails-sqlserver.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.utils.buildOrderByStatement" id="apidoc.element.sails-sqlserver.utils.buildOrderByStatement">
+        function <span class="apidocSignatureSpan">sails-sqlserver.utils.</span>buildOrderByStatement
+        <span class="apidocSignatureSpan">(criteria)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">buildOrderByStatement = function (criteria){
+	var queryPart = &#x27;ORDER BY &#x27;;
+
+	// Sort through each sort attribute criteria
+	_.each(criteria.sort, function(direction, attrName) {
+
+		queryPart += &#x27;[&#x27; + attrName + &#x27;] &#x27;;
+
+		// Basic MongoDB-style numeric sort direction
+		if (direction === 1) {
+			queryPart += &#x27;ASC, &#x27;;
+		} else {
+			queryPart += &#x27;DESC, &#x27;;
+		}
+	});
+
+	// Remove trailing comma
+	if(queryPart.slice(-2) === &#x27;, &#x27;) {
+		queryPart = queryPart.slice(0, -2) + &#x27; &#x27;;
+	}
+	return queryPart;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+//HANDLE SKIP
+if (criteria.skip){
+	  var primaryKeySort = {};
+	  primaryKeySort[criteria.__primaryKey__] = 1;
+	  //@todo what to do with no primary key OR sort?
+	  criteria.sort = criteria.sort || primaryKeySort;
+	  query += &#x27;ROW_NUMBER() OVER (&#x27; +
+		  utils.<span class="apidocCodeKeywordSpan">buildOrderByStatement</span>(criteria) +
+		  &#x27;) AS \&#x27;__rownum__\&#x27;, &#x27;;
+}
+else if (criteria.limit) {
+// SQL Server implementation of LIMIT
+  query += &#x27;TOP &#x27; + criteria.limit + &#x27; &#x27;;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.utils.buildSelectStatement" id="apidoc.element.sails-sqlserver.utils.buildSelectStatement">
+        function <span class="apidocSignatureSpan">sails-sqlserver.utils.</span>buildSelectStatement
+        <span class="apidocSignatureSpan">(criteria, table)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">buildSelectStatement = function (criteria, table) {
+
+  var query = &#x27;SELECT &#x27;;
+
+  if(criteria.groupBy || criteria.sum || criteria.average || criteria.min || criteria.max) {
+
+    // Append groupBy columns to select statement
+    if(criteria.groupBy) {
+      if(criteria.groupBy instanceof Array) {
+        criteria.groupBy.forEach(function(opt){
+          query += &#x27;[&#x27; + opt + &#x27;], &#x27;;
+        });
+
+      } else {
+        query += &#x27;[&#x27; + criteria.groupBy + &#x27;], &#x27;;
+      }
+    }
+
+    // Handle SUM
+    if (criteria.sum) {
+      if(criteria.sum instanceof Array) {
+        criteria.sum.forEach(function(opt){
+          query += &#x27;SUM([&#x27; + opt + &#x27;]) AS [&#x27; + opt + &#x27;], &#x27;;
+        });
+
+      } else {
+        query += &#x27;SUM([&#x27; + criteria.sum + &#x27;]) AS [&#x27; + criteria.sum + &#x27;], &#x27;;
+      }
+    }
+
+    // Handle AVG (casting to float to fix percision with trailing zeros)
+    if (criteria.average) {
+      if(criteria.average instanceof Array) {
+        criteria.average.forEach(function(opt){
+          query += &#x27;AVG(CAST([&#x27; + opt + &#x27;] AS FLOAT)) AS [&#x27; + opt + &#x27;], &#x27;;
+        });
+
+      } else {
+        query += &#x27;AVG(CAST([&#x27; + criteria.average + &#x27;] AS FLOAT)) AS [&#x27; + criteria.average + &#x27;], &#x27;;
+      }
+    }
+
+    // Handle MAX
+    if (criteria.max) {
+      if(criteria.max instanceof Array) {
+        criteria.max.forEach(function(opt){
+          query += &#x27;MAX([&#x27; + opt + &#x27;]) AS [&#x27; + opt + &#x27;], &#x27;;
+        });
+
+      } else {
+        query += &#x27;MAX([&#x27; + criteria.max + &#x27;]) AS [&#x27; + criteria.max + &#x27;], &#x27;;
+      }
+    }
+
+    // Handle MIN
+    if (criteria.min) {
+      if(criteria.min instanceof Array) {
+        criteria.min.forEach(function(opt){
+          query += &#x27;MIN([&#x27; + opt + &#x27;]) AS [&#x27; + opt + &#x27;], &#x27;;
+        });
+
+      } else {
+        query += &#x27;MIN([&#x27; + criteria.min + &#x27;]) AS [&#x27; + criteria.min + &#x27;], &#x27;;
+      }
+    }
+
+    // trim trailing comma
+    query = query.slice(0, -2) + &#x27; &#x27;;
+
+    // Add FROM clause
+    return query += &#x27;FROM [&#x27; + table + &#x27;] &#x27;;
+  }
+
+
+
+  //HANDLE SKIP
+  if (criteria.skip){
+	  var primaryKeySort = {};
+	  primaryKeySort[criteria.__primaryKey__] = 1;
+	  //@todo what to do with no primary key OR sort?
+	  criteria.sort = criteria.sort || primaryKeySort;
+	  query += &#x27;ROW_NUMBER() OVER (&#x27; +
+		  utils.buildOrderByStatement(criteria) +
+		  &#x27;) AS \&#x27;__rownum__\&#x27;, &#x27;;
+  }
+  else if (criteria.limit) {
+  // SQL Server implementation of LIMIT
+    query += &#x27;TOP &#x27; + criteria.limit + &#x27; &#x27;;
+  }
+
+  return query += &#x27;* FROM [&#x27; + table + &#x27;] &#x27;;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	removeColumn: function (collectionName, attrName) {
+    	var tableName = collectionName;
+    	attrName = attrName;
+    	return &#x27;ALTER TABLE [&#x27; + tableName + &#x27;] DROP COLUMN &#x27; + attrName;
+	},
+
+	selectQuery: function (collectionName, options) {
+		var query = utils.<span class="apidocCodeKeywordSpan">buildSelectStatement</span>(options, collectionName);
+		query += sql.serializeOptions(collectionName, options);
+		if (options.skip){
+			var outerOffsetQuery = &#x27;SELECT &#x27;;
+			if (options.limit){
+				outerOffsetQuery += &#x27;TOP &#x27; + options.limit + &#x27; &#x27;;
+			}
+			outerOffsetQuery += &#x27;* FROM (&#x27; + query + &#x27;) __outeroffset__ WHERE __outeroffset__.__rownum__ &#x3e; &#x27; + options
+.skip + &#x27; &#x27;;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-sqlserver.utils.prepareValue" id="apidoc.element.sails-sqlserver.utils.prepareValue">
+        function <span class="apidocSignatureSpan">sails-sqlserver.utils.</span>prepareValue
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">prepareValue = function (value) {
+
+  if(!value) return value;
+
+  // Cast functions to strings
+  if (_.isFunction(value)) {
+    value = value.toString();
+  }
+
+  // Store Arrays and Objects as strings
+  if (Array.isArray(value) || value.constructor &#x26;&#x26; value.constructor.name === &#x27;Object&#x27;) {
+    try {
+      value = JSON.stringify(value);
+    } catch (e) {
+      // just keep the value and let the db handle an error
+      value = value;
+    }
+  }
+
+  return value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+		var attrStr, valueStr;
+
+
+		// Special comparator case
+		if (parentKey) {
+
+			attrStr = sql.prepareAttribute(collectionName, value, parentKey);
+			valueStr = sql.<span class="apidocCodeKeywordSpan">prepareValue</span>(collectionName, value, parentKey);
+
+			// Why don&#x27;t we strip you out of those bothersome apostrophes?
+			var nakedButClean = _.str.trim(valueStr,&#x27;\&#x27;&#x27;);
+
+			if (key === &#x27;&#x3c;&#x27; || key === &#x27;lessThan&#x27;) return attrStr + &#x27;&#x3c;&#x27; + valueStr;
+			else if (key === &#x27;&#x3c;=&#x27; || key === &#x27;lessThanOrEqual&#x27;) return attrStr + &#x27;&#x3c;=&#x27; + valueStr;
+			else if (key === &#x27;&#x3e;&#x27; || key === &#x27;greaterThan&#x27;) return attrStr + &#x27;&#x3e;&#x27; + valueStr;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>

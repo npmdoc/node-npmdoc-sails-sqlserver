@@ -1,6 +1,6 @@
 # npmdoc-sails-sqlserver
 
-#### api documentation for  [sails-sqlserver (v0.10.8)](https://github.com/cnect/sails-sqlserver)  [![npm package](https://img.shields.io/npm/v/npmdoc-sails-sqlserver.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-sails-sqlserver) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-sails-sqlserver.svg)](https://travis-ci.org/npmdoc/node-npmdoc-sails-sqlserver)
+#### basic api documentation for  [sails-sqlserver (v0.10.8)](https://github.com/cnect/sails-sqlserver)  [![npm package](https://img.shields.io/npm/v/npmdoc-sails-sqlserver.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-sails-sqlserver) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-sails-sqlserver.svg)](https://travis-ci.org/npmdoc/node-npmdoc-sails-sqlserver)
 
 #### Official SQL Server Adapter for Sails / Waterline
 
@@ -112,7 +112,8 @@
             "associations"
         ],
         "waterlineVersion": "~0.10.0"
-    }
+    },
+    "bin": {}
 }
 ```
 
